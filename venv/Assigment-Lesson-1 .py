@@ -95,7 +95,7 @@ hello = "hello"
 helloo = "helloo"
 hello > helloo  # False
 
-# --------------------------------------
+# ---------------------------------------
 # EXTRA 2
 name = input("Enter Your Name:")
 try:
