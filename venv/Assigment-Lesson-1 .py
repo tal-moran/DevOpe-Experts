@@ -66,8 +66,8 @@ print(a+int(b))
 print(str(a)+b)
 
 
-# ----------------------------------------
-# EXTRA 1
+# ------------------------------------------
+# EXTRA Exercise #1
 # 1
 number = 5
 string = "5"
@@ -96,7 +96,7 @@ helloo = "helloo"
 hello > helloo  # False
 
 # ---------------------------------------
-# EXTRA 2
+# EXTRA Exercise #2
 name = input("Enter Your Name:")
 try:
     age = int(input("Enter YourAge:"))
