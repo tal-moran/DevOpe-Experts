@@ -1,8 +1,13 @@
 # exercise A
+# 1. Create a variable name first with value 7.
 first = 7
+# 2. Create a variable name second with value 44.3.
 second = 44.3
+# 3. Print result of adding first to second.
 print(first + second) # 51.3
+# 4. Print result of multiplying first by second
 print(first * second) # 310.0999
+# 5. Print result of dividing second by first
 print(second / first) # 6.3
 
 # ------------------------------------------
