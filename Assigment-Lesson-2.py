@@ -136,7 +136,6 @@ for i in range(1, 8):
         print("#", end=" ")
     print("")
 
-
 # ------------------------------------------
 # exercise L
 # Create a nested for loop to create X shape (width is 7, length is 7):
@@ -152,6 +151,7 @@ for width in range(7):
     print("")
     i += 1
     j -= 1
+
 
 # ------------------------------------------
 # exercise M
