@@ -1,0 +1,196 @@
+-------------------------------------------------------------------------------------------
+# exercise 1
+Console Output
+Started by user tal
+Running as SYSTEM
+Building in workspace /var/lib/jenkins/workspace/Job-1
+[test] $ /bin/sh -xe /tmp/jenkins4416966651511767989.sh
++ echo Tal Moran
+Finished: SUCCESS
+
+-------------------------------------------------------------------------------------------
+# exercise 2
+
+
+Console Output
+Started by user tal
+Running as SYSTEM
+Building in workspace /var/lib/jenkins/workspace/Job-2
+[Job-2] $ /bin/sh -xe /tmp/jenkins7414676672070714269.sh
++ cat /tmp/job1.txt
+Tal Moran
+Finished: SUCCESS
+
+-------------------------------------------------------------------------------------------
+# exercise 3
+
+Console Output
+Started by user tal
+Running as SYSTEM
+Building in workspace /var/lib/jenkins/workspace/test
+[test] $ /bin/sh -xe /tmp/jenkins5820351922202370594.sh
++ df -h
+Filesystem                         Size  Used Avail Use% Mounted on
+udev                               1.9G     0  1.9G   0% /dev
+tmpfs                              393M  1.6M  391M   1% /run
+/dev/mapper/ubuntu--vg-ubuntu--lv   19G  7.0G   11G  40% /
+tmpfs                              2.0G     0  2.0G   0% /dev/shm
+tmpfs                              5.0M     0  5.0M   0% /run/lock
+tmpfs                              2.0G     0  2.0G   0% /sys/fs/cgroup
+/dev/loop0                         126M  126M     0 100% /snap/docker/471
+/dev/loop1                          98M   98M     0 100% /snap/core/10583
+/dev/sda2                          976M   78M  832M   9% /boot
+tmpfs                              393M     0  393M   0% /run/user/1000
+tmpfs                              393M     0  393M   0% /run/user/111
+/dev/loop2                          99M   99M     0 100% /snap/core/10823
+Finished: SUCCESS
+
+
+
+-------------------------------------------------------------------------------------------
+# exercise 4
+
+Console Output
+Started by user tal
+Running as SYSTEM
+Building in workspace /var/lib/jenkins/workspace/test
+[test] $ /bin/sh -xe /tmp/jenkins5355948968695237761.sh
++ mv /tmp/job1.txt /var/lib/jenkins/.
++ ls -l /var/lib/jenkins/job1.txt
+-rw-r--r-- 1 jenkins jenkins 10 Feb  9 12:10 /var/lib/jenkins/job1.txt
+Finished: SUCCESS
+
+
+-------------------------------------------------------------------------------------------
+# exercise 5
+
+Build Triggers
+Build periodically Schedule
+00 08 * * *
+Spread load evenly by using ‘H 08 * * *’ rather than ‘00 08 * * *’
+Would last have run at Tuesday, February 9, 2021 8:00:00 AM UTC; would next run at Wednesday, February 10, 2021 8:00:00 AM UTC.
+
+
+Console Output
+Started by timer
+Running as SYSTEM
+Building in workspace /var/lib/jenkins/workspace/Job-1
+[Job-1] $ /bin/sh -xe /tmp/jenkins6451040387190256635.sh
++ echo Tal Moran
+Finished: SUCCESS
+
+
+
+-------------------------------------------------------------------------------------------
+# exercise 6
+pipeline scripts:
+pipeline {
+    agent any
+    options { timestamps() }
+    stages {
+        stage('Job # 1') {
+            steps {
+                sh 'echo "Tal Moran" > /tmp/pipeline-1.txt'
+            }
+        }
+        stage('Job # 2') {
+            steps {
+                sh 'cat /tmp/pipeline-1.txt'
+            }
+        }
+        stage('Job # 3') {
+            steps {
+                sh 'df -h'
+            }
+        }
+        stage('Job # 4') {
+            steps {
+                sh 'mv /tmp/pipeline-1.txt /var/lib/jenkins/pipeline-1.txt'
+                sh 'ls -l /var/lib/jenkins/pipeline-1.txt'
+            }
+        }
+    }
+}
+
+
+
+Console Output:
+
+Started by user tal
+Running in Durability level: MAX_SURVIVABILITY
+[Pipeline] Start of Pipeline
+[Pipeline] node
+Running on Jenkins in /var/lib/jenkins/workspace/pipeline-1
+[Pipeline] {
+[Pipeline] timestamps
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (Job # 1)
+[Pipeline] sh
+23:31:27  + echo Tal Moran
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Job # 2)
+[Pipeline] sh
+23:31:27  + cat /tmp/pipeline-1.txt
+23:31:27  Tal Moran
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Job # 3)
+[Pipeline] sh
+23:31:28  + df -h
+23:31:28  Filesystem                         Size  Used Avail Use% Mounted on
+23:31:28  udev                               1.9G     0  1.9G   0% /dev
+23:31:28  tmpfs                              393M  1.6M  391M   1% /run
+23:31:28  /dev/mapper/ubuntu--vg-ubuntu--lv   19G  7.0G   11G  40% /
+23:31:28  tmpfs                              2.0G     0  2.0G   0% /dev/shm
+23:31:28  tmpfs                              5.0M     0  5.0M   0% /run/lock
+23:31:28  tmpfs                              2.0G     0  2.0G   0% /sys/fs/cgroup
+23:31:28  /dev/loop0                          99M   99M     0 100% /snap/core/10823
+23:31:28  /dev/loop1                         126M  126M     0 100% /snap/docker/471
+23:31:28  /dev/loop2                          98M   98M     0 100% /snap/core/10583
+23:31:28  /dev/sda2                          976M   78M  832M   9% /boot
+23:31:28  tmpfs                              393M     0  393M   0% /run/user/111
+23:31:28  tmpfs                              393M     0  393M   0% /run/user/1000
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Job # 4)
+[Pipeline] sh
+23:31:28  + mv -f /tmp/pipeline-1.txt /var/lib/jenkins/pipeline-1.txt
+[Pipeline] sh
+23:31:28  + ls -l /var/lib/jenkins/pipeline-1.txt
+23:31:28  -rw-r--r-- 1 jenkins jenkins 10 Feb  9 21:31 /var/lib/jenkins/pipeline-1.txt
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] }
+[Pipeline] // timestamps
+[Pipeline] }
+[Pipeline] // node
+[Pipeline] End of Pipeline
+Finished: SUCCESS
+
+-------------------------------------------------------------------------------------------
+# exercise 7
+
+Console Output
+Started by user tal
+Running as SYSTEM
+Building in workspace /var/lib/jenkins/workspace/Job-1
+[Job-1] $ /bin/sh -xe /tmp/jenkins6812250479192358913.sh
++ echo Tal Moran
+Triggering a new build of Job-2
+Finished: SUCCESS
+
+Console Output
+Started by upstream project "Job-1" build number 10
+originally caused by:
+ Started by user tal
+Running as SYSTEM
+Building in workspace /var/lib/jenkins/workspace/Job-2
+[Job-2] $ /bin/sh -xe /tmp/jenkins8839061901547765806.sh
++ cat /tmp/job1.txt
+Tal Moran
+Finished: SUCCESS
